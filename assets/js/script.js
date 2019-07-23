@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     //Craete a function that will populate the images from giphy api
 
-    $(document).on("click", ".animal-buttons", function () {
+    $(document).on("click", ".animal-button", function () {
         $("#images").empty();
 
         $(".animal-buttons").removeClass("active");
@@ -31,7 +31,7 @@ $(document).ready(function () {
 
         var type = $(this).attr("data-type");
 
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "$api_key=OFLHKVV1JquX9JlrYC7fBECTN5lzLnFN&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
         console.log(queryURL);
 
         //Ajax call
@@ -42,7 +42,7 @@ $(document).ready(function () {
         })
 
             .done(function (response) {
-                var results = reponse.date;
+                var results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
                     var animalDiv = $("<div class=\"animal-item\">");
@@ -102,5 +102,5 @@ $(document).ready(function () {
 
     });
 
-    populateButtons(animals, "animal-button", "#animal-buttons");
+    // populateButtons(animals, "animal-button", "#animal-buttons");
 });
